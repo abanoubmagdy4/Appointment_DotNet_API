@@ -68,15 +68,29 @@ namespace Appointment_Scheduling_System.Application.Services
             try
             {
                 if (updateAppointmentDto == null)
-                {
                     return ServiceResult<AppointmentResponseDto>.Fail("Invalid request data.");
-                }
 
                 var appointment = await _unitOfWork.Appointment.GetByIdAsync(id);
                 if (appointment == null)
-                {
                     return ServiceResult<AppointmentResponseDto>.Fail($"Appointment with ID {id} not found.");
-                }
+
+                if (appointment.appointmentStatus.ToString() != "Scheduled")
+                    return ServiceResult<AppointmentResponseDto>.Fail("Only Scheduled appointments can be updated.");
+
+                DateTime newStartTime = updateAppointmentDto.CreatedDate;
+
+                if (newStartTime < DateTime.Now)
+                    return ServiceResult<AppointmentResponseDto>.Fail("Cannot book an appointment in the past.");
+
+                int minutesSlot = (newStartTime.Minute / 15) * 15;
+                DateTime slotStart = new DateTime(newStartTime.Year, newStartTime.Month, newStartTime.Day, newStartTime.Hour, minutesSlot, 0);
+                DateTime slotEnd = slotStart.AddMinutes(15);
+
+                bool slotTaken = await _unitOfWork.Appointment
+                    .AnyAsync(a => a.Id != id && a.CreatedDate >= slotStart && a.CreatedDate < slotEnd);
+
+                if (slotTaken)
+                    return ServiceResult<AppointmentResponseDto>.Fail("This 15-minute slot is already booked. Please choose another.");
 
                 mapper.Map(updateAppointmentDto, appointment);
 
@@ -84,7 +98,6 @@ namespace Appointment_Scheduling_System.Application.Services
                 await _unitOfWork.SaveChangesAsync();
 
                 var response = mapper.Map<AppointmentResponseDto>(appointment);
-
                 return ServiceResult<AppointmentResponseDto>.Ok(response);
             }
             catch (DbUpdateException dbEx)
@@ -100,6 +113,7 @@ namespace Appointment_Scheduling_System.Application.Services
                 return ServiceResult<AppointmentResponseDto>.Fail($"An unexpected error occurred: {ex.Message}");
             }
         }
+
 
 
 
