@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KuEhl0ZgCw8=",
+  "dgSpecHash": "TynLRxKA8F0=",
   "success": true,
-  "projectFilePath": "F:\\BACKEND TRACK\\Projects 2025\\AugTask\\ColnnTask\\Appointment_Scheduling_System\\Appointment_Scheduling_System\\Appointment_Scheduling_System.csproj",
+  "projectFilePath": "F:\\BACKEND TRACK\\Projects 2025\\AugTask\\ColnnTask\\Repository\\Appointment_DotNet_API\\Appointment_Scheduling_System\\Appointment_Scheduling_System.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dell\\.nuget\\packages\\automapper\\15.0.1\\automapper.15.0.1.nupkg.sha512",
     "C:\\Users\\dell\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",

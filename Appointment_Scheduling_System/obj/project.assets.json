@@ -4495,11 +4495,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\BACKEND TRACK\\Projects 2025\\AugTask\\ColnnTask\\Appointment_Scheduling_System\\Appointment_Scheduling_System\\Appointment_Scheduling_System.csproj",
+      "projectUniqueName": "F:\\BACKEND TRACK\\Projects 2025\\AugTask\\ColnnTask\\Repository\\Appointment_DotNet_API\\Appointment_Scheduling_System\\Appointment_Scheduling_System.csproj",
       "projectName": "Appointment_Scheduling_System",
-      "projectPath": "F:\\BACKEND TRACK\\Projects 2025\\AugTask\\ColnnTask\\Appointment_Scheduling_System\\Appointment_Scheduling_System\\Appointment_Scheduling_System.csproj",
+      "projectPath": "F:\\BACKEND TRACK\\Projects 2025\\AugTask\\ColnnTask\\Repository\\Appointment_DotNet_API\\Appointment_Scheduling_System\\Appointment_Scheduling_System.csproj",
       "packagesPath": "C:\\Users\\dell\\.nuget\\packages\\",
-      "outputPath": "F:\\BACKEND TRACK\\Projects 2025\\AugTask\\ColnnTask\\Appointment_Scheduling_System\\Appointment_Scheduling_System\\obj\\",
+      "outputPath": "F:\\BACKEND TRACK\\Projects 2025\\AugTask\\ColnnTask\\Repository\\Appointment_DotNet_API\\Appointment_Scheduling_System\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\DevExpress 24.2\\Components\\Offline Packages",
